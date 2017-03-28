@@ -1,14 +1,17 @@
-GetNewFactIntent a fact
-GetNewFactIntent a space fact
-GetNewFactIntent tell me a fact
-GetNewFactIntent tell me a space fact
-GetNewFactIntent give me a fact
-GetNewFactIntent give me a space fact
-GetNewFactIntent tell me trivia
-GetNewFactIntent tell me a space trivia
-GetNewFactIntent give me trivia
-GetNewFactIntent give me a space trivia
-GetNewFactIntent give me some information
-GetNewFactIntent give me some space information
-GetNewFactIntent tell me something
-GetNewFactIntent give me something
+GetNewQuoteIntent quote luther
+GetNewQuoteIntent quote martin luther
+GetNewQuoteIntent a quote
+GetNewQuoteIntent a luther quote
+GetNewQuoteIntent a martin luther quote
+GetNewQuoteIntent tell me a quote
+GetNewQuoteIntent tell me a luther quote
+GetNewQuoteIntent tell me a martin luther quote
+GetNewQuoteIntent give me a quote
+GetNewQuoteIntent give me a luther quote
+GetNewQuoteIntent give me a martin luther quote
+GetNewQuoteIntent what is a luther quote
+GetNewQuoteIntent what's a luther quote
+GetNewQuoteIntent what is a martin luther quote
+GetNewQuoteIntent what's a martin luther quote
+GetNewQuoteIntent what did luther say
+GetNewQuoteIntent what did martin luther say
