@@ -1,6 +1,7 @@
 'use strict';
 var Alexa = require('alexa-sdk');
 var APP_ID = "amzn1.ask.skill.e278d5ca-fb59-4cd9-ad69-b565736d9958";
+var lastQuote;
 
 var languageStrings = {
     "en": {
@@ -109,7 +110,7 @@ var languageStrings = {
                 "Should some thought that isn’t worth a fart nevertheless overwhelm me, I have the advantage, that our Lord God gives me, of taking hold of his Word once again."
             ],
             "SKILL_NAME" : "Luther Quotes",
-            "GET_QUOTE_MESSAGE" : "Martin Luther said: ",
+            "GET_QUOTE_MESSAGE" : "Martin Luther said... ",
             "HELP_MESSAGE" : "You can say tell me a Luther quote, or, you can say exit... What can I help you with?",
             "HELP_REPROMPT" : "What can I help you with?",
             "STOP_MESSAGE" : "Goodbye!"
@@ -134,7 +135,7 @@ var handlers = {
         this.emit('GetQuote');
     },
     'GetQuote': function () {
-        // Get a random space fact from the space facts list
+        // Get a random quote from luther quotes list
         // Use this.t() to get corresponding language data
         var quoteArr = this.t('QUOTES');
         var quoteIndex = Math.floor(Math.random() * quoteArr.length);
@@ -142,6 +143,7 @@ var handlers = {
 
         // Create speech output
         var speechOutput = this.t("GET_QUOTE_MESSAGE") + randomQuote;
+        lastQuote = speechOutput;
         this.emit(':tellWithCard', speechOutput, this.t("SKILL_NAME"), randomQuote)
     },
     'AMAZON.HelpIntent': function () {
@@ -154,5 +156,10 @@ var handlers = {
     },
     'AMAZON.StopIntent': function () {
         this.emit(':tell', this.t("STOP_MESSAGE"));
+    },
+    'AMAZON.RepeatIntent': function () {
+        if (lastQuote) {
+            this.emit(':tell', lastQuote);
+        }
     }
 };

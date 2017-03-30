@@ -1,3 +1,9 @@
+GetNewQuoteIntent he said
+GetNewQuoteIntent luther said
+GetNewQuoteIntent martin luther said
+GetNewQuoteIntent what he said
+GetNewQuoteIntent what luther said
+GetNewQuoteIntent what martin luther said
 GetNewQuoteIntent quote luther
 GetNewQuoteIntent quote martin luther
 GetNewQuoteIntent a quote
@@ -15,3 +21,5 @@ GetNewQuoteIntent what is a martin luther quote
 GetNewQuoteIntent what's a martin luther quote
 GetNewQuoteIntent what did luther say
 GetNewQuoteIntent what did martin luther say
+
+AMAZON.RepeatIntent repeat the quote
