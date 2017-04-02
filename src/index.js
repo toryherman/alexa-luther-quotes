@@ -114,7 +114,7 @@ var languageStrings = {
             "HELP_MESSAGE" : "You can say tell me a Luther quote, or, you can say exit... What can I help you with?",
             "HELP_REPROMPT" : "What can I help you with?",
             "STOP_MESSAGE" : "Goodbye!",
-            "ANOTHER_MESSAGE" : "Would you like another Luther quote?"
+            "ANOTHER_MESSAGE" : "<break strength='x-strong' />Would you like another Luther quote?"
         }
     }
 };
@@ -135,9 +135,6 @@ var handlers = {
     'GetNewQuoteIntent': function () {
         this.emit('GetQuote');
     },
-    'GetAnother': function () {
-        this.emit(':ask', this.t("ANOTHER_MESSAGE"));
-    },
     'GetQuote': function () {
         // Get a random quote from luther quotes list
         // Use this.t() to get corresponding language data
@@ -146,12 +143,9 @@ var handlers = {
         var randomQuote = quoteArr[quoteIndex];
 
         // Create speech output
-        var speechOutput = this.t("GET_QUOTE_MESSAGE") + randomQuote;
+        var speechOutput = this.t("GET_QUOTE_MESSAGE") + randomQuote + this.t("ANOTHER_MESSAGE");
         lastQuote = speechOutput;
-        this.emit(':tellWithCard', speechOutput, this.t("SKILL_NAME"), randomQuote);
-
-        // Ask user if they want another quote
-        this.emit('GetAnother');
+        this.emit(':askWithCard', speechOutput, this.t("SKILL_NAME"), randomQuote);
     },
     'AMAZON.HelpIntent': function () {
         var speechOutput = this.t("HELP_MESSAGE");
