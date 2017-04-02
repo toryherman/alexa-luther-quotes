@@ -114,7 +114,7 @@ var languageStrings = {
             "HELP_MESSAGE" : "You can say tell me a Luther quote, or, you can say exit... What can I help you with?",
             "HELP_REPROMPT" : "What can I help you with?",
             "STOP_MESSAGE" : "Goodbye!",
-            "ANOTHER_MESSAGE" : "<break strength='x-strong' />Would you like another Luther quote?"
+            "ANOTHER_MESSAGE" : " <break strength='x-strong' />Would you like another quote?"
         }
     }
 };
