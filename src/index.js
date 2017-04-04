@@ -145,7 +145,7 @@ var handlers = {
         // Create speech output
         var speechOutput = this.t("GET_QUOTE_MESSAGE") + randomQuote + this.t("ANOTHER_MESSAGE");
         lastQuote = speechOutput;
-        this.emit(':askWithCard', speechOutput, this.t("SKILL_NAME"), randomQuote);
+        this.emit(':askWithCard', speechOutput, this.t("ANOTHER_MESSAGE"), this.t("SKILL_NAME"), randomQuote);
     },
     'AMAZON.HelpIntent': function () {
         var speechOutput = this.t("HELP_MESSAGE");
@@ -160,7 +160,7 @@ var handlers = {
     },
     'AMAZON.RepeatIntent': function () {
         if (lastQuote) {
-            this.emit(':tell', lastQuote);
+            this.emit(':ask', lastQuote, this.t("ANOTHER_MESSAGE"));
         }
     },
     'AMAZON.YesIntent': function () {
