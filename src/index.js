@@ -132,6 +132,12 @@ var handlers = {
     'LaunchRequest': function () {
         this.emit('GetQuote');
     },
+    'Unhandled': function () {
+        this.emit(':ask', "HELP_MESSAGE", "HELP_MESSAGE");
+    },
+    'SessionEndedRequest': function () {
+        console.log('session ended!');
+    },
     'GetNewQuoteIntent': function () {
         this.emit('GetQuote');
     },

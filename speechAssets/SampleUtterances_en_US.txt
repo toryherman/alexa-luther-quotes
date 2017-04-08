@@ -9,6 +9,9 @@ GetNewQuoteIntent a martin luther quote
 GetNewQuoteIntent tell me a quote
 GetNewQuoteIntent tell me a luther quote
 GetNewQuoteIntent tell me a martin luther quote
+GetNewQuoteIntent tell me what he said
+GetNewQuoteIntent tell me what luther said
+GetNewQuoteIntent tell me what martin luther luther said
 GetNewQuoteIntent give me a quote
 GetNewQuoteIntent give me a luther quote
 GetNewQuoteIntent give me a martin luther quote
