@@ -1,7 +1,6 @@
 'use strict';
 var Alexa = require('alexa-sdk');
 var APP_ID = "amzn1.ask.skill.e278d5ca-fb59-4cd9-ad69-b565736d9958";
-var lastQuote;
 
 var languageStrings = {
     "en": {
@@ -236,7 +235,7 @@ var handlers = {
         this.emit('GetQuote');
     },
     'Unhandled': function () {
-        this.emit(':ask', "HELP_MESSAGE", "HELP_MESSAGE");
+        this.emit(':ask', this.t("HELP_MESSAGE"), this.t("HELP_MESSAGE"));
     },
     'SessionEndedRequest': function () {
         console.log('session ended!');
@@ -255,7 +254,7 @@ var handlers = {
 
         // Create speech output
         var speechOutput = this.t("GET_QUOTE_MESSAGE") + randomQuote + this.t("ANOTHER_MESSAGE");
-        lastQuote = speechOutput;
+        this.attributes.lastQuote = speechOutput;
         this.emit(':askWithCard', speechOutput, this.t("ANOTHER_MESSAGE"), this.t("SKILL_NAME"), cardQuote);
     },
     'AMAZON.HelpIntent': function () {
@@ -270,8 +269,10 @@ var handlers = {
         this.emit(':tell', this.t("STOP_MESSAGE"));
     },
     'AMAZON.RepeatIntent': function () {
-        if (lastQuote) {
-            this.emit(':ask', lastQuote, this.t("ANOTHER_MESSAGE"));
+        if (this.attributes.lastQuote) {
+            this.emit(':ask', this.attributes.lastQuote, this.t("ANOTHER_MESSAGE"));
+        } else {
+            this.emit(':ask', this.t("HELP_MESSAGE"), this.t("HELP_MESSAGE"));
         }
     },
     'AMAZON.YesIntent': function () {
